@@ -1,0 +1,243 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/*
+ * Retiro Folia — Folianópolis 2026 design system.
+ * All colors in oklch. Never hardcode colors in components.
+ */
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --radius-3xl: calc(var(--radius) + 12px);
+  --radius-4xl: calc(var(--radius) + 16px);
+
+  --font-display: "Inter Tight", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --color-ink: var(--ink);
+  --color-ink-deep: var(--ink-deep);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-orange: var(--orange);
+  --color-orange-soft: var(--orange-soft);
+  --color-fuchsia-deep: var(--fuchsia-deep);
+  --color-violet-glow: var(--violet-glow);
+  --color-hairline: var(--hairline);
+}
+
+:root {
+  --radius: 1rem;
+
+  /* Core palette sampled from the design */
+  --ink: oklch(0.164 0.048 305);          /* #14082A page background */
+  --ink-deep: oklch(0.108 0.036 300);     /* #0E061B deep panels */
+  --surface: oklch(0.19 0.038 302);       /* card fill */
+  --surface-2: oklch(0.145 0.03 300);     /* darker card fill */
+  --orange: oklch(0.664 0.198 44.6);      /* #EF6E1A */
+  --orange-soft: oklch(0.72 0.15 52);
+  --fuchsia-deep: oklch(0.45 0.098 336);  /* #774175 */
+  --violet-glow: oklch(0.52 0.19 300);
+  --hairline: oklch(1 0 0 / 12%);
+
+  --background: var(--ink);
+  --foreground: oklch(0.98 0.004 300);
+  --card: var(--surface);
+  --card-foreground: oklch(0.98 0.004 300);
+  --popover: var(--surface);
+  --popover-foreground: oklch(0.98 0.004 300);
+  --primary: var(--orange);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: var(--surface-2);
+  --secondary-foreground: oklch(0.98 0.004 300);
+  --muted: var(--surface-2);
+  --muted-foreground: oklch(0.74 0.014 300);
+  --accent: var(--surface-2);
+  --accent-foreground: oklch(0.98 0.004 300);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.99 0 0);
+  --border: var(--hairline);
+  --input: var(--hairline);
+  --ring: var(--orange);
+
+  /* Composed tokens */
+  --gradient-orange: linear-gradient(180deg, oklch(0.7 0.19 47), var(--orange));
+  --gradient-cta: linear-gradient(
+    100deg,
+    oklch(0.55 0.16 45) 0%,
+    oklch(0.36 0.1 20) 32%,
+    oklch(0.45 0.19 300) 60%,
+    oklch(0.16 0.05 305) 100%
+  );
+  --gradient-artist: linear-gradient(
+    135deg,
+    oklch(0.66 0.14 55 / 65%) 0%,
+    oklch(0.5 0.16 300 / 60%) 100%
+  );
+  --shadow-card: 0 24px 60px -30px oklch(0 0 0 / 80%);
+  --shadow-orange: 0 14px 34px -14px oklch(0.664 0.198 44.6 / 55%);
+  --glow-ring: 0 0 0 1px oklch(1 0 0 / 8%), 0 0 80px -20px oklch(0.52 0.19 300 / 60%);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    letter-spacing: -0.025em;
+  }
+}
+
+/* ---------- utilities ---------- */
+
+@utility eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: oklch(1 0 0 / 62%);
+}
+
+@utility btn-orange {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  background: var(--gradient-orange);
+  color: var(--primary-foreground);
+  padding: 0.75rem 1.375rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  box-shadow: var(--shadow-orange);
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    filter: brightness(1.06);
+    box-shadow: 0 18px 42px -12px oklch(0.664 0.198 44.6 / 70%);
+  }
+}
+
+@utility btn-ink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  background: var(--ink-deep);
+  color: oklch(0.99 0 0);
+  padding: 0.75rem 1.375rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  transition:
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1),
+    box-shadow 0.25s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 18px 40px -16px oklch(0 0 0 / 75%);
+  }
+}
+
+@utility btn-outline-light {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid oklch(1 0 0 / 55%);
+  color: oklch(0.99 0 0);
+  padding: 0.7rem 1.25rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  transition:
+    background-color 0.25s ease,
+    transform 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+
+  &:hover {
+    background-color: oklch(1 0 0 / 12%);
+    transform: translateY(-2px);
+  }
+}
+
+@utility panel {
+  background-color: var(--surface-2);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-2xl);
+}
+
+@utility hairline-b {
+  border-bottom: 1px solid var(--hairline);
+}
+
+@utility shell {
+  width: 100%;
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+
+  @media (width >= 768px) {
+    padding-inline: 2rem;
+  }
+}
+
+@utility artist-tint {
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: var(--gradient-artist);
+    mix-blend-mode: screen;
+    transition: opacity 0.4s ease;
+  }
+}
