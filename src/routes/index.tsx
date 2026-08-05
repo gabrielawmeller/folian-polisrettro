@@ -6,7 +6,7 @@ import { LineUp, Roteiro } from "@/components/landing/LineUp";
 import { Confianca } from "@/components/landing/Confianca";
 import { CtaFaq, Footer } from "@/components/landing/CtaFaq";
 
-const TITLE = "Retiro Folia · Folianópolis 2026 em Florianópolis";
+const TITLE = "Excursão Folianópolis 2026 - Retiro Folia";
 const DESC =
   "Pacote completo para a 19ª edição do Folianópolis: transporte, hospedagem, 3 festas exclusivas e open bar 24h em Florianópolis, de 30/10 a 02/11.";
 

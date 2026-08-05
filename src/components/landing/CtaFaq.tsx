@@ -4,43 +4,58 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 import { img } from "@/lib/assets";
 import { Reveal, easeOut } from "@/components/motion-primitives";
 
-const FAQ = [
-  [
-    "Quais as datas e horários da viagem?",
-    "A saída de Curitiba é dia 30/10 (sexta), com concentração às 03h00 e saída às 03h30, do Estacionamento da PUC/PR (Portão 1). O retorno de Florianópolis é dia 02/11 (segunda) às 12h00.",
-  ],
-  [
-    "O que está incluso no pacote?",
-    "Transporte (opcional), traslados ida e volta com open bar na ida, hospedagem com café da manhã e open bar de chopp 24h, 2 almoços, 2 pool parties exclusivas, 1 festa na escuna, kit folião com brindes, guias e equipe de apoio, entretenimento e equipe médica com ambulância.",
-  ],
-  [
-    "O ingresso do Folianópolis está incluso?",
-    "O ingresso é opcional e adquirido através do nosso link promocional exclusivo, com código de desconto. Fazemos a entrega dos abadás diretamente no hotel.",
-  ],
-  [
-    "Onde fica a hospedagem?",
-    "No Paraíso Palace Hotel, o QG oficial do Retiro Folia em Florianópolis. É lá que acontecem as pool parties, a recepção e a programação. Conta com open bar de chopp 24h, café da manhã, piscina, salão de jogos, Wi-Fi e ar-condicionado.",
-  ],
-  [
-    "Quais os tipos de quarto e valores?",
-    "Há opções de quarto single, duplo e triplo, em duas modalidades de pacote (Receptivo ou com Saída de Curitiba). Os valores começam em R$ 1.799 por pessoa (quarto triplo, receptivo). Fale com a gente para o valor da sua configuração.",
-  ],
-  [
-    "Como funciona o pagamento?",
-    "Aceitamos PIX e cartão de crédito. No cartão, parcelamos em até 12x (com juros). No PIX, você parcela sem juros até a data do evento. As vagas e quartos só são reservados mediante pagamento.",
-  ],
-  [
-    "Posso cancelar?",
-    "Sim. Para cancelamentos, aplicam-se as regras e condições especificadas em contrato. Fale com a nossa equipe para entender os detalhes.",
-  ],
-  [
-    "Preciso comprar o abadá separado?",
-    "Sim. Os abadás devem ser adquiridos diretamente pelo link promocional, com o nosso código de desconto. A entrega é feita diretamente no hotel.",
-  ],
+const FAQ: Array<
+  | { q: string; a: string; image?: never }
+  | { q: string; image: string; imageAlt: string; a?: never }
+> = [
+  {
+    q: "Quais as datas e horários da viagem?",
+    a: "A saída de Curitiba é dia 30/10 (sexta), com concentração às 03h00 e saída às 03h30, do Estacionamento da PUC/PR (Portão 1). O retorno de Florianópolis é dia 02/11 (segunda) às 12h00.",
+  },
+  {
+    q: "O que está incluso no pacote?",
+    a: "Transporte (opcional), traslados ida e volta com open bar na ida, hospedagem com café da manhã e open bar de chopp 24h, 2 almoços, 2 pool parties exclusivas, 1 festa na escuna, kit folião com brindes, guias e equipe de apoio e entretenimento.",
+  },
+  {
+    q: "O ingresso do Folianópolis está incluso?",
+    a: "O ingresso é opcional e adquirido através do nosso link promocional exclusivo, com código de desconto. Fazemos a entrega dos abadás diretamente no hotel.",
+  },
+  {
+    q: "Onde fica a hospedagem?",
+    a: "No Paraíso Palace Hotel, o QG oficial do Retiro Folia em Florianópolis. É lá que acontecem as pool parties, a recepção e a programação. Conta com open bar de chopp 24h, café da manhã, piscina, salão de jogos, Wi-Fi e ar-condicionado.",
+  },
+  {
+    q: "Quais os tipos de quarto e valores?",
+    a: "Há opções de quarto single, duplo e triplo, em duas modalidades de pacote (Receptivo ou com Saída de Curitiba). Os valores começam em R$ 1.799 por pessoa (quarto triplo, receptivo). Fale com a gente para o valor da sua configuração.",
+  },
+  {
+    q: "Como funciona o pagamento?",
+    a: "Aceitamos PIX e cartão de crédito. No cartão, parcelamos em até 12x (com juros). No PIX, você parcela sem juros até a data do evento. As vagas e quartos só são reservados mediante pagamento.",
+  },
+  {
+    q: "Posso cancelar?",
+    a: "Sim. Para cancelamentos, aplicam-se as regras e condições especificadas em contrato. Fale com a nossa equipe para entender os detalhes.",
+  },
+  {
+    q: "Preciso comprar o abadá separado?",
+    a: "Sim. Os abadás devem ser adquiridos diretamente pelo link promocional, com o nosso código de desconto. A entrega é feita diretamente no hotel.",
+  },
+  {
+    q: "Quais são os valores?",
+    image: "/faq-valores.png",
+    imageAlt: "Tabela de valores Retiro Folia — Nossos valores sem abadá",
+  },
 ];
 
-function FaqRow({ q, a, index }: { q: string; a: string; index: number }) {
+function FaqRow({
+  item,
+  index,
+}: {
+  item: (typeof FAQ)[number];
+  index: number;
+}) {
   const [open, setOpen] = useState(false);
+  const { q } = item;
   return (
     <motion.div
       initial={{ opacity: 0, y: 16 }}
@@ -69,9 +84,20 @@ function FaqRow({ q, a, index }: { q: string; a: string; index: number }) {
             transition={{ duration: 0.35, ease: easeOut }}
             className="overflow-hidden"
           >
-            <p className="pb-6 text-[0.83rem] leading-[1.9] text-muted-foreground">
-              {a}
-            </p>
+            {"image" in item ? (
+              <div className="flex justify-center pb-6">
+                <img
+                  src={item.image}
+                  alt={item.imageAlt}
+                  loading="lazy"
+                  className="w-full max-w-xl rounded-2xl"
+                />
+              </div>
+            ) : (
+              <p className="pb-6 text-[0.83rem] leading-[1.9] text-muted-foreground">
+                {item.a}
+              </p>
+            )}
           </motion.div>
         )}
       </AnimatePresence>
@@ -112,8 +138,8 @@ export function CtaFaq() {
             <h2 className="text-[clamp(1.7rem,3.6vw,2.3rem)] font-bold">Perguntas frequentes</h2>
           </Reveal>
           <div className="mt-8 border-t border-border">
-            {FAQ.map(([q, a], i) => (
-              <FaqRow key={q} q={q} a={a} index={i} />
+            {FAQ.map((item, i) => (
+              <FaqRow key={item.q} item={item} index={i} />
             ))}
           </div>
         </div>

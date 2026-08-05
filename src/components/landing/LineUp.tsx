@@ -19,18 +19,13 @@ export function LineUp() {
             <div className="absolute inset-0 bg-ink-deep/72" />
 
             <div className="relative px-6 py-14 md:px-12 md:py-20">
-              <div className="grid gap-6 md:grid-cols-2 md:items-end">
-                <div>
-                  <p className="eyebrow">Line up</p>
-                  <h2 className="mt-4 max-w-[14ch] text-[clamp(1.7rem,3.6vw,2.3rem)] leading-[1.2] font-bold">
-                    Artistas que&nbsp;
-                    <br />
-                    sobem no palco
-                  </h2>
-                </div>
-                <p className="max-w-[42ch] text-[0.85rem] leading-[1.85] text-muted-foreground md:ml-auto md:text-right">
-                  Espaço reservado para as fotos e nomes dos artistas confirmados da 19ª edição.
-                </p>
+              <div>
+                <p className="eyebrow">Line up</p>
+                <h2 className="mt-4 max-w-[14ch] text-[clamp(1.7rem,3.6vw,2.3rem)] leading-[1.2] font-bold">
+                  Artistas que&nbsp;
+                  <br />
+                  sobem no palco
+                </h2>
               </div>
 
         <RevealGroup

@@ -58,7 +58,7 @@ export function Intro() {
           {[...MARQUEE, ...MARQUEE].map((name, i) => (
             <span
               key={`${name}-${i}`}
-              className="font-display text-[clamp(1.6rem,3.4vw,2.4rem)] font-medium whitespace-nowrap text-white/12"
+              className="font-display text-[clamp(1.6rem,3.4vw,2.4rem)] font-medium whitespace-nowrap text-white/22 md:text-white/12"
             >
               {name}
             </span>
@@ -150,12 +150,12 @@ const CUIDA = [
   {
     icon: BusFront,
     title: "Embarque tranquilo",
-    body: "Você só precisa chegar. A gente organiza o transporte, os traslados, o open bar já na ida e toda a logística para você começar a curtir desde o primeiro quilômetro.",
+    body: "Você só precisa chegar. A gente organiza o transporte, os traslados, o open bar já na ida para o Folianópolis e toda a logística para você começar a curtir desde o primeiro quilômetro.",
   },
   {
     icon: PartyPopper,
     title: "Na folia",
-    body: "Pool parties exclusivas, festa em alto mar na escuna, almoços, brindes e uma equipe de apoio inteira (com suporte médico) para que sua única preocupação seja aproveitar.",
+    body: "Pool parties exclusivas, festa em alto mar na escuna, almoços, brindes e uma equipe de apoio inteira para que sua única preocupação seja aproveitar.",
   },
 ];
 

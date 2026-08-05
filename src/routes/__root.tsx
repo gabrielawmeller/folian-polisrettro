@@ -77,15 +77,15 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Folianópolis" },
+      { title: "Excursão Folianópolis 2026 - Retiro Folia" },
       { name: "description", content: "Pixel Perfect Revival is a React-based landing page application that precisely replicates a provided PDF design." },
       { name: "author", content: "Lovable" },
-      { property: "og:title", content: "Folianópolis" },
+      { property: "og:title", content: "Excursão Folianópolis 2026 - Retiro Folia" },
       { property: "og:description", content: "Pixel Perfect Revival is a React-based landing page application that precisely replicates a provided PDF design." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:site", content: "@Lovable" },
-      { name: "twitter:title", content: "Folianópolis" },
+      { name: "twitter:title", content: "Excursão Folianópolis 2026 - Retiro Folia" },
       { name: "twitter:description", content: "Pixel Perfect Revival is a React-based landing page application that precisely replicates a provided PDF design." },
       { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/23c1bd8d-d595-4cc1-9580-47fbdda62164/id-preview-6c826517--d985d60c-50f5-46a1-95f6-6e6188c3a9e3.lovable.app-1785245046499.png" },
       { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/23c1bd8d-d595-4cc1-9580-47fbdda62164/id-preview-6c826517--d985d60c-50f5-46a1-95f6-6e6188c3a9e3.lovable.app-1785245046499.png" },
@@ -101,9 +101,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         rel: "stylesheet",
         href: appCss,
       },
-      { rel: "icon", href: "/favicon.png", type: "image/png" },
-      { rel: "shortcut icon", href: "/favicon.png", type: "image/png" },
-      { rel: "apple-touch-icon", href: "/favicon.png" },
+      { rel: "icon", href: "/favicon.ico?v=4", sizes: "any" },
+      { rel: "icon", href: "/favicon.png?v=4", type: "image/png" },
+      { rel: "shortcut icon", href: "/favicon.ico?v=4" },
+      { rel: "apple-touch-icon", href: "/favicon.png?v=4" },
     ],
   }),
   shellComponent: RootShell,
@@ -116,9 +117,28 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        {/* Google Tag Manager */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+})(window,document,'script','dataLayer','GTM-KRJVNSCQ');`,
+          }}
+        />
+        {/* End Google Tag Manager */}
         <HeadContent />
       </head>
       <body>
+        {/* Google Tag Manager (noscript) */}
+        <noscript
+          dangerouslySetInnerHTML={{
+            __html: `<iframe src="https://www.googletagmanager.com/ns.html?id=GTM-KRJVNSCQ"
+height="0" width="0" style="display:none;visibility:hidden"></iframe>`,
+          }}
+        />
+        {/* End Google Tag Manager (noscript) */}
         {children}
         <Scripts />
       </body>
