@@ -8,7 +8,7 @@ const INCLUSO = [
   ["Hospedagem", "com café da manhã e open bar de chopp 24h"],
   ["Ingresso Folianópolis", "(opcional, via link promocional exclusivo)"],
   ["Kit Folião", "com brindes exclusivos"],
-  ["2 almoços", "(sexta e domingo)"],
+  ["2 almoços", "(sexta e sábado)"],
   ["2 pool parties exclusivas", "com open bar (sexta e domingo)"],
   ["1 festa na escuna", "com open bar (sábado)"],
   ["Guias + equipe de apoio", "Retiro Folia"],
@@ -85,16 +85,16 @@ const FESTAS = [
   {
     tag: "Festa 2",
     when: "Sábado · 31/10",
-    title: "Halloween Travessuras",
-    body: "Festa em alto mar na escuna, com open bar. Uma experiência única, navegando por Floripa no clima de Halloween.",
-    src: img.festa2,
+    title: "Pool Parmê",
+    body: "Festa do abadá na piscina com parmegiana e open bar. O encerramento à altura da Micareta mais bonita do Brasil.",
+    src: img.festa3,
   },
   {
     tag: "Festa 3",
     when: "Domingo · 01/11",
-    title: "Pool Parmê",
-    body: "Festa do abadá na piscina com parmegiana e open bar. O encerramento à altura da Micareta mais bonita do Brasil.",
-    src: img.festa3,
+    title: "Halloween Travessuras",
+    body: "Festa em alto mar na escuna, com open bar. Uma experiência única, navegando por Floripa no clima de Halloween.",
+    src: img.festa2,
   },
 ];
 

@@ -10,7 +10,7 @@ const FAQ: Array<
 > = [
   {
     q: "Quais as datas e horários da viagem?",
-    a: "A saída de Curitiba é dia 30/10 (sexta), com concentração às 03h00 e saída às 03h30, do Estacionamento da PUC/PR (Portão 1). O retorno de Florianópolis é dia 02/11 (segunda) às 12h00.",
+    a: "A saída de Curitiba é dia 30/10 (sexta), com concentração às 03h00 e saída às 03h30, na Praça Afonso Botelho - R. Eng. Rebouças, 3020 - Água Verde. O retorno de Florianópolis é dia 02/11 (segunda) às 12h00.",
   },
   {
     q: "O que está incluso no pacote?",

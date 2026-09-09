@@ -81,7 +81,7 @@ const ROTEIRO = [
   {
     tag: "Embarque · 30/10 (Sex)",
     title: "Concentração 03h00 · Saída 03h30",
-    body: "Av. Sen. Salgado Filho, 25 — Portão 1, Estacionamento PUC/PR, Curitiba.",
+    body: "Praça Afonso Botelho - R. Eng. Rebouças, 3020 - Água Verde",
   },
   {
     tag: "3 dias de folia · 30, 31/10 e 01/11",
